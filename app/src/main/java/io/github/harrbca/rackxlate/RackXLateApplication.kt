@@ -28,7 +28,7 @@ class RackXLateApplication : Application() {
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
 
-        val request = PeriodicWorkRequestBuilder<DBUpdateWorker>(15, TimeUnit.MINUTES)
+        val request = PeriodicWorkRequestBuilder<DBUpdateWorker>(1, TimeUnit.HOURS)
             .setConstraints(constraints)
             .build()
 
