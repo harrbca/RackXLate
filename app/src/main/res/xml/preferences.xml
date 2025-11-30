@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditTextPreference
+        android:key="intent_action"
+        android:title="DataWedge Intent Action"
+        android:summary="The action to listen for from Symbol DataWedge"
+        android:defaultValue="io.github.harrbca.rackxlate.ACTION"
+        app:useSimpleSummaryProvider="true" />
+
+    <EditTextPreference
+        android:key="manifest_url"
+        android:title="Rack Labels Manifest URL"
+        android:summary="The URL of the Rack Labels manifest file"
+        android:inputType="textUri"
+        app:useSimpleSummaryProvider="true"/>
+
+    <Preference
+        android:key="download_manifest"
+        android:title="Download Manifest Now"
+        android:summary="Manifest has not been downloaded yet." />
+
+</PreferenceScreen>
