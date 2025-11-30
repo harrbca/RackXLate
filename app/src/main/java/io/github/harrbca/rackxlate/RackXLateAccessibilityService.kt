@@ -4,8 +4,10 @@ import android.accessibilityservice.AccessibilityService
 import android.content.Context
 import android.content.IntentFilter
 import android.content.SharedPreferences
+import android.os.Bundle
 import android.util.Log
 import android.view.accessibility.AccessibilityEvent
+import android.view.accessibility.AccessibilityNodeInfo
 import androidx.preference.PreferenceManager
 
 class RackXLateAccessibilityService : AccessibilityService(), SharedPreferences.OnSharedPreferenceChangeListener {
@@ -42,6 +44,25 @@ class RackXLateAccessibilityService : AccessibilityService(), SharedPreferences.
         unregisterReceiver(scanReceiver)
         Log.d("RackXLateAccessibilityService", "Accessibility Service destroyed")
         PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this)
+    }
+
+    /**
+     * Finds the currently focused input field and pastes text into it.
+     * @param text The text to be pasted.
+     */
+    fun pasteTextIntoFocusedField(text: String) {
+        val rootNode = rootInActiveWindow ?: return
+        val focusedNode = findFocus(AccessibilityNodeInfo.FOCUS_INPUT)
+
+        if (focusedNode != null && (focusedNode.isEditable || focusedNode.isFocusable)) {
+            val arguments = Bundle()
+            arguments.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, text)
+            focusedNode.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT, arguments)
+            Log.d("ScanAccessibility", "Pasted text: $text")
+        } else {
+            Log.w("ScanAccessibility", "Could not find a focused/editable field to paste text into.")
+        }
+        rootNode.recycle()
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {

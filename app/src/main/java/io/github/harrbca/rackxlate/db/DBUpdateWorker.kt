@@ -1,10 +1,10 @@
-package io.github.harrbca.rackxlate
+package io.github.harrbca.rackxlate.db
 
 import android.content.Context
 import android.util.Log
-import androidx.preference.PreferenceManager
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
+import io.github.harrbca.rackxlate.RackXLateApplication
 
 class DBUpdateWorker(
     appContext: Context,

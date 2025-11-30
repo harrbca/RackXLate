@@ -1,4 +1,4 @@
-package io.github.harrbca.rackxlate
+package io.github.harrbca.rackxlate.db
 
 data class DBManifest(
     val version: Int,

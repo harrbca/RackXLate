@@ -1,8 +1,9 @@
-package io.github.harrbca.rackxlate
+package io.github.harrbca.rackxlate.settings
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import io.github.harrbca.rackxlate.R
 
 class SettingsActivity : AppCompatActivity() {
 

@@ -1,8 +1,7 @@
-package io.github.harrbca.rackxlate
+package io.github.harrbca.rackxlate.settings
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.flowWithLifecycle
@@ -13,6 +12,10 @@ import androidx.preference.PreferenceManager
 import io.github.harrbca.rackxlate.Constants.KEY_MANIFEST_LAST_DOWNLOADED
 import io.github.harrbca.rackxlate.Constants.KEY_MANIFEST_URL
 import io.github.harrbca.rackxlate.Constants.KEY_MANIFEST_VERSION
+import io.github.harrbca.rackxlate.R
+import io.github.harrbca.rackxlate.RackXLateApplication
+import io.github.harrbca.rackxlate.db.DBUpdateManager
+import io.github.harrbca.rackxlate.db.UpdateStatus
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -21,13 +24,10 @@ import java.util.Date
 import java.util.Locale
 
 class SettingsFragment : PreferenceFragmentCompat() {
-
-    // 1. Get the singleton DBUpdateManager instance
     private val dbUpdateManager: DBUpdateManager by lazy {
         (requireActivity().application as RackXLateApplication).dbUpdateManager
     }
 
-    // 2. Get the SharedPreferences instance once, as it's needed for UI updates
     private val sharedPreferences: SharedPreferences by lazy {
         PreferenceManager.getDefaultSharedPreferences(requireContext())
     }

@@ -1,17 +1,12 @@
-package io.github.harrbca.rackxlate
+package io.github.harrbca.rackxlate.db
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
-import androidx.preference.PreferenceManager
 import io.github.harrbca.rackxlate.Constants.DATABASE_FILENAME
 import io.github.harrbca.rackxlate.Constants.KEY_MANIFEST_URL
 import io.github.harrbca.rackxlate.Constants.KEY_MANIFEST_VERSION
-import io.github.harrbca.rackxlate.DBUpdateManager.Companion.TAG
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import java.io.File

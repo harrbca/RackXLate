@@ -15,12 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RackXLate">
         <activity
-            android:name=".SettingsActivity"
+            android:name=".settings.SettingsActivity"
             android:exported="true" />
 
         <service
             android:name=".RackXLateAccessibilityService"
-            android:label="RackXLate Accessibility Service"
+            android:label="RackXLate Service"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:exported="true">
             <intent-filter>

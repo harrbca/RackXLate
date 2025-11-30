@@ -8,6 +8,8 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
+import io.github.harrbca.rackxlate.db.DBUpdateManager
+import io.github.harrbca.rackxlate.db.DBUpdateWorker
 import java.util.concurrent.TimeUnit
 
 class RackXLateApplication : Application() {

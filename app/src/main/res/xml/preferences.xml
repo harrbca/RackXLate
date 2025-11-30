@@ -10,6 +10,21 @@
         app:useSimpleSummaryProvider="true" />
 
     <EditTextPreference
+        android:key="scan_warehouse"
+        android:title="Warehouse"
+        android:summary="Warehouse to scan location for"
+        android:defaultValue="XXX"
+        app:useSimpleSummaryProvider="true" />
+
+
+    <EditTextPreference
+        android:key="scan_regex"
+        android:title="Scan Regex"
+        android:summary="The regex to use to determine if the xlate function should perform a lookup."
+        android:defaultValue="^[54063]\\d{7}$"
+        app:useSimpleSummaryProvider="true" />
+
+    <EditTextPreference
         android:key="manifest_url"
         android:title="Rack Labels Manifest URL"
         android:summary="The URL of the Rack Labels manifest file"
